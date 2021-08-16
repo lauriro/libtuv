@@ -394,6 +394,7 @@ UV_EXTERN const char* uv_err_name(int err);
 /* Abstract base class of all requests. */
 struct uv_req_s {
   UV_REQ_FIELDS
+  void *hack_ptr[3];
 };
 
 
@@ -516,6 +517,7 @@ UV_EXTERN int uv_try_write(uv_stream_t* handle,
 /* uv_write_t is a subclass of uv_req_t. */
 struct uv_write_s {
   UV_REQ_FIELDS
+  void *hack_ptr[3];
   uv_write_cb cb;
   uv_stream_t* send_handle;
   uv_stream_t* handle;
